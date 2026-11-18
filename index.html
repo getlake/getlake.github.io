@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lake · Cost and plan control for AI coding agents</title>
-<meta name="description" content="Lake prices every step of your coding agent's plan, sets a cap that stops and asks, and waits for a teammate's yes on plans that need one. lake-meter and lake-gate are free and open source (MIT). No Lake server or account.">
+<meta name="description" content="Lake estimates every step of your coding agent's plan, sets a cap that stops and asks, and waits for a teammate's yes on plans that need one. lake-meter and lake-gate are free and open source (MIT). No Lake server or account.">
 <meta name="theme-color" content="#0e7c7b">
 <meta property="og:title" content="Lake · Cost and plan control for AI coding agents">
-<meta property="og:description" content="A price for every step before your coding agent starts, a cap that stops and asks, and a real yes on plans that need one. Free and open source (MIT). No Lake server or account.">
+<meta property="og:description" content="An estimate for every step before your coding agent starts, a cap that stops and asks, and a real yes on plans that need one. Free and open source (MIT). No Lake server or account.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getlake.dev/">
 <meta property="og:site_name" content="Lake">
@@ -15,12 +15,12 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="Lake: agents that ship on plan, under a cap you set. A sample plan priced per step, and a teammate approval.">
+<meta property="og:image:alt" content="Lake: agents that ship on plan, with a cap you set. A sample plan estimated per step, and a teammate approval.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lake · Cost and plan control for AI coding agents">
-<meta name="twitter:description" content="A price for every step before your coding agent starts, a cap that stops and asks, and a real yes on plans that need one. Free and open source (MIT). No Lake server or account.">
+<meta name="twitter:description" content="An estimate for every step before your coding agent starts, a cap that stops and asks, and a real yes on plans that need one. Free and open source (MIT). No Lake server or account.">
 <meta name="twitter:image" content="https://getlake.dev/assets/og-home.png">
-<meta name="twitter:image:alt" content="Lake: agents that ship on plan, under a cap you set. A sample plan priced per step, and a teammate approval.">
+<meta name="twitter:image:alt" content="Lake: agents that ship on plan, with a cap you set. A sample plan estimated per step, and a teammate approval.">
 <link rel="canonical" href="https://getlake.dev/">
 <link rel="icon" href="/assets/logo-mark.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -63,8 +63,8 @@
   <div class="container hero-grid">
     <div class="hero-copy">
       <p class="eyebrow"><span class="small-line"></span> Cost and plan control for AI coding agents</p>
-      <h1 id="hero-title">Agents that ship on plan, <em>under a cap you set.</em></h1>
-      <p class="lede">Lake puts a price on every step before your coding agent starts, sets a cap that stops and asks while it works, and waits for <strong>a teammate's real yes</strong> on plans that need one.</p>
+      <h1 id="hero-title">Agents that ship on plan, <em>with a cap you&nbsp;set.</em></h1>
+      <p class="lede">Lake estimates every step before your coding agent starts, sets a cap that stops and asks while it works, and waits for <strong>a teammate's real yes</strong> on plans that need one.</p>
       <div class="hero-ctas">
         <a class="button" href="#tools">Pick a free tool <svg class="i"><use href="#down"/></svg></a>
         <a class="text-link" href="/lake-gate/app/#/demo">Try the live demo <svg class="i"><use href="#up"/></svg></a>
@@ -72,11 +72,11 @@
       <ul class="chips" aria-label="What you get">
         <li class="chip"><svg class="i"><use href="#open"/></svg>Open source, MIT</li>
         <li class="chip"><svg class="i"><use href="#laptop"/></svg>No Lake server or account</li>
-        <li class="chip"><svg class="i"><use href="#check"/></svg>Claude Code &amp; Cursor</li>
+        <li class="chip"><svg class="i"><use href="#check"/></svg>Built for Claude Code</li>
       </ul>
     </div>
 
-    <div class="flow" aria-label="Illustration: a sample plan is priced by lake-meter, then approved in lake-gate">
+    <div class="flow" aria-label="Illustration: a sample plan is estimated by lake-meter, then approved in lake-gate">
       <div class="win plan">
         <div class="win-bar"><i></i><i></i><i></i><span>plan.md</span><span class="tag">Estimate</span></div>
         <div class="plan-body">
@@ -92,7 +92,7 @@
       </div>
       <div class="win gate">
         <header><img src="/assets/logo-mark.svg" alt=""><span>lake/plan-approval</span><span class="state">Waiting</span></header>
-        <p>Build waits for a yes on this exact plan.<span>plan v5c19e7a2</span></p>
+        <p>The PR can't merge until this exact plan is approved.<span>plan v5c19e7a2</span></p>
         <div class="row"><span class="avatar" aria-hidden="true">MK</span><span class="avatar" aria-hidden="true" style="margin-left:-14px;background:#e3f1f1;color:#0b6262">JS</span><span class="approve">Approve<svg class="i"><use href="#check"/></svg></span></div>
       </div>
       <span class="ripple-ring" aria-hidden="true"></span>
@@ -107,7 +107,7 @@
       <p class="section-index">01 · The tools</p>
       <h2 id="tools-title">Two small tools. <em>Free to use, today.</em></h2>
     </div>
-    <p>One prices a solo run and gives it a cap that stops and asks. One keeps a team's agents on the plan everyone agreed to. Install either in one command, and remove it just as fast.</p>
+    <p>One estimates a solo run and gives it a cap that stops and asks. One keeps a team's agents on the plan everyone agreed to. Install either in one command, and remove it just as fast.</p>
   </div>
 
   <div class="products">
@@ -138,7 +138,7 @@
         <div class="p-meta"><span class="free">Free</span><span>Teams</span><span>Claude Code &amp; Cursor</span></div>
         <h3>lake-gate</h3>
         <p class="line">Your coding agent waits for a real yes on plans that need one.</p>
-        <p class="desc">The agent's plan lands in the repo. When it needs review, the build waits until a teammate approves that exact version. Edit the plan and the approval expires. Runs in your repo and on GitHub.</p>
+        <p class="desc">The agent's plan lands in the repo. When it needs review, the PR can't merge until a teammate approves that exact version. Edit the plan and the approval expires. Runs in your repo and on GitHub.</p>
         <div class="install"><code><span class="prompt">$</span>npx lake-gate init</code><button class="copy" type="button" data-copy="npx lake-gate init" aria-label="Copy install command"><svg class="i"><use href="#copy"/></svg><span class="idle">Copy</span><span class="done">Copied</span></button></div>
         <div class="p-ctas">
           <a class="button" href="/lake-gate/">Explore lake-gate <svg class="i"><use href="#arrow"/></svg></a>
