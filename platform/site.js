@@ -9,9 +9,7 @@ function gcEvent(path, title) {
   gcTimer = setInterval(() => { if (gcFlush() || ++n > 60) { clearInterval(gcTimer); gcTimer = null; } }, 250);
 }
 
-// Both CTAs share one placeholder URL. Replace DISCUSSION_ID in
-// window.LAKE_PLATFORM_DISCUSSION (set in index.html) after the pinned
-// discussion exists; hrefs update so there is a single edit point.
+// Both CTAs take their href from window.LAKE_PLATFORM_DISCUSSION (set in index.html).
 const discussion = window.LAKE_PLATFORM_DISCUSSION || "";
 document.querySelectorAll("[data-platform-waitlist-cta]").forEach((el) => {
   if (discussion && !discussion.includes("DISCUSSION_ID")) el.href = discussion;

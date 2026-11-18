@@ -10,7 +10,17 @@
 <meta property="og:description" content="We're building Lake, an operating layer for engineering teams on top of Linear and GitHub. Looking for a few design-partner teams.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getlake.dev/platform/">
-<meta name="twitter:card" content="summary">
+<meta property="og:site_name" content="Lake">
+<meta property="og:image" content="https://getlake.dev/assets/og-platform.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Lake for teams: get your eng team in sync, on top of Linear. A prototype preview on sample data.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lake for teams: design partners wanted">
+<meta name="twitter:description" content="We're building Lake, an operating layer for engineering teams on top of Linear and GitHub. Looking for a few design-partner teams.">
+<meta name="twitter:image" content="https://getlake.dev/assets/og-platform.png">
+<meta name="twitter:image:alt" content="Lake for teams: get your eng team in sync, on top of Linear. A prototype preview on sample data.">
 <link rel="canonical" href="https://getlake.dev/platform/">
 <link rel="icon" href="/assets/logo-mark.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -46,7 +56,7 @@
   <nav aria-label="Main">
     <a href="#building">What we're building</a>
     <a href="#tools">Free tools</a>
-    <a href="#partners" class="keep">Design partners</a>
+    <a href="#partners" class="keep"><span class="full">Design partners</span><span class="short">Join</span></a>
     <a class="button compact ghost" href="https://github.com/getlake" aria-label="Lake on GitHub"><svg class="i"><use href="#github"/></svg><span class="gh-label">GitHub</span></a>
   </nav>
 </header>
@@ -90,12 +100,11 @@
 </section>
 
 <section class="sec container" id="building" aria-labelledby="building-title">
-  <div class="sec-head">
+  <div class="sec-head solo">
     <div>
-      <p class="section-index">01 · What we're building</p>
-      <h2 id="building-title">Less chasing. <em>More flow.</em></h2>
+      <p class="section-index">01 · Early prototype</p>
+      <h2 id="building-title">What we're <em>building.</em></h2>
     </div>
-    <p>Three loops every eng lead runs by hand today, turned into something that runs itself on top of the tools your team already uses.</p>
   </div>
   <div class="cards3">
     <article class="feat"><span class="ic"><svg class="i"><use href="#ticket"/></svg></span><h3>Ticket vs. reality</h3><p>Will flag tickets whose status doesn't match the PRs, CI runs and deploys behind them, with the evidence linked.</p></article>
@@ -104,19 +113,19 @@
   </div>
   <div class="ontop">
     <div class="stack" aria-hidden="true"><span>Linear</span><span class="plus">+</span><span>GitHub</span><span class="plus"><svg class="i"><use href="#arrow"/></svg></span><span class="lk">Lake</span></div>
-    <p>Lake is designed to sit on top of Linear, not replace it, so there's nothing to migrate. Your team keeps working where it works today. No integrations are live yet.</p>
+    <p>Lake is designed to sit on top of Linear, not replace it, so there's nothing to migrate. No integrations are live yet.</p>
   </div>
 </section>
 
 <section class="core" id="tools" aria-labelledby="tools-title">
   <div class="container core-grid">
     <div>
-      <p class="section-index">02 · Start today, free</p>
-      <h2 id="tools-title">Two tools you can <em>run this afternoon.</em></h2>
+      <p class="section-index">02 · Open source</p>
+      <h2 id="tools-title">Start today, <em>free.</em></h2>
       <p class="quiet">Both are open source (MIT), with no Lake account or server: lake-meter runs fully on your machine, lake-gate runs in your repo and on GitHub.</p>
     </div>
     <ul class="pillars">
-      <li><span class="ic"><svg class="i"><use href="#check"/></svg></span><div><b>lake-gate</b><p>A plan-approval gate for AI-coding teams. The build waits until a teammate approves that exact plan.</p><a class="text-link" style="color:var(--mint)" href="/lake-gate/">Explore lake-gate <svg class="i"><use href="#arrow"/></svg></a></div></li>
+      <li><span class="ic"><svg class="i"><use href="#check"/></svg></span><div><b>lake-gate</b><p>A plan-approval gate for AI-coding teams.</p><a class="text-link" style="color:var(--mint)" href="/lake-gate/">Explore lake-gate <svg class="i"><use href="#arrow"/></svg></a></div></li>
       <li><span class="ic"><svg class="i"><use href="#wave"/></svg></span><div><b>lake-meter</b><p>A per-step model and $ estimate for Claude Code plans, plus a per-run cap that stops and asks.</p><a class="text-link" style="color:var(--mint)" href="/lake-meter/">Explore lake-meter <svg class="i"><use href="#arrow"/></svg></a></div></li>
     </ul>
   </div>
@@ -125,12 +134,13 @@
 <section class="sec container" id="partners" aria-labelledby="partners-title">
   <div class="split">
     <div>
-      <p class="section-index">03 · Who it's for</p>
-      <h2 id="partners-title">Looking for a few teams. <em>Maybe yours.</em></h2>
+      <p class="section-index">03 · Design partners</p>
+      <h2 id="partners-title">Who it's <em>for.</em></h2>
       <p class="who">Heads of Engineering and team leads with 5–30 engineers on Linear and GitHub who ship with Claude Code or Cursor.</p>
     </div>
     <div>
-      <ul class="gets" aria-label="What design partners get">
+      <h3 class="gets-title">What design partners get</h3>
+      <ul class="gets">
         <li><span class="tick"><svg class="i"><use href="#check"/></svg></span>Early access as each piece comes together.</li>
         <li><span class="tick"><svg class="i"><use href="#check"/></svg></span>A direct line to the people building it.</li>
         <li><span class="tick"><svg class="i"><use href="#check"/></svg></span>A real say in what we build next.</li>
@@ -143,9 +153,9 @@
 <section class="container" aria-labelledby="join-title" style="padding-bottom:110px">
   <div class="partner-card">
     <img class="ripple" src="/assets/ripple-mascot.svg" alt="" width="72" height="72">
-    <p class="section-index">04 · Design partners</p>
-    <h2 id="join-title">Help us shape Lake for teams.</h2>
-    <p class="body">Tell us how your team runs today and where it hurts.</p>
+    <p class="section-index">04 · Join</p>
+    <h2 id="join-title">Get your eng team in sync, on top of Linear.</h2>
+    <p class="body">It's an early prototype, and we're looking for a handful of teams to help shape it.</p>
     <div class="partner-ctas">
       <a class="button" data-platform-waitlist-cta href="https://github.com/getlake/getlake.github.io/discussions/1">Join the design-partner list <svg class="i"><use href="#arrow"/></svg></a>
     </div>
