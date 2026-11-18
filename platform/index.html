@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lake for teams: design partners wanted</title>
+<meta name="description" content="We're building Lake, an operating layer for engineering teams on top of Linear and GitHub. Looking for a few design-partner teams.">
+<meta name="theme-color" content="#0e7c7b">
+<meta property="og:title" content="Lake for teams: design partners wanted">
+<meta property="og:description" content="We're building Lake, an operating layer for engineering teams on top of Linear and GitHub. Looking for a few design-partner teams.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getlake.dev/platform/">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://getlake.dev/platform/">
+<style>
+  :root { --bg:#0b1212; --card:#122019; --ink:#e8f3f0; --muted:#9bb8b3; --accent:#0e7c7b; --line:#1e3330; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; }
+  main { max-width:720px; margin:0 auto; padding:72px 24px; }
+  .mark { font-weight:700; letter-spacing:.04em; font-size:14px; text-transform:uppercase; color:var(--accent); text-decoration:none; }
+  .mark:hover, .mark:focus-visible { text-decoration:underline; outline:none; }
+  h1 { font-size:2rem; font-weight:650; margin:12px 0 8px; letter-spacing:-.02em; }
+  h2 { font-size:1.15rem; font-weight:650; margin:36px 0 10px; letter-spacing:-.01em; }
+  .lede, .close, .mit { color:var(--muted); margin:0 0 8px; max-width:40em; }
+  .lede { margin-bottom:24px; }
+  .mit { margin:0 0 0; }
+  .cta { display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin:0 0 8px; }
+  .cta-block { margin:0 0 36px; }
+  a.btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; border-radius:12px; padding:12px 18px; }
+  a.btn:hover, a.btn:focus-visible { filter:brightness(1.08); outline:2px solid #fff; outline-offset:3px; }
+  .disclose { color:var(--muted); font-size:14px; margin:0; max-width:40em; }
+  ul { padding-left:1.2em; margin:0 0 16px; max-width:42em; }
+  li { margin:0 0 10px; }
+  .audience { max-width:40em; margin:0; }
+  a:not(.btn):not(.mark) { color:var(--ink); }
+  a:not(.btn):not(.mark):focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  footer { margin-top:48px; color:var(--muted); font-size:14px; }
+  footer a { color:var(--ink); }
+  @media (max-width:420px) {
+    main { padding:48px 20px; }
+    h1 { font-size:1.65rem; }
+    a.btn { width:100%; text-align:center; }
+  }
+</style>
+<script data-goatcounter="https://lakehq.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+  // Placeholder. A getlake org member must enable Discussions on
+  // getlake/getlake.github.io, create and pin the design-partner post,
+  // then replace DISCUSSION_ID here and in the two CTA hrefs below.
+  window.LAKE_PLATFORM_DISCUSSION = "https://github.com/getlake/getlake.github.io/discussions/1";
+</script>
+<script defer src="site.js"></script>
+</head>
+<body>
+<main>
+  <a class="mark" href="/">Lake</a>
+  <h1>Get your eng team in sync, on top of Linear.</h1>
+  <p class="lede">We're building Lake: a layer over Linear and GitHub that checks tickets against what actually shipped, keeps blockers moving, and puts a cost on trade-offs before you commit. It's an early prototype, and we're looking for a handful of teams to help shape it.</p>
+
+  <div class="cta-block">
+    <div class="cta">
+      <a class="btn" data-platform-waitlist-cta href="https://github.com/getlake/getlake.github.io/discussions/1">Join the design-partner list</a>
+    </div>
+    <p class="disclose">This opens a public GitHub discussion; share only what you're happy to have public.</p>
+  </div>
+
+  <h2>What we're building</h2>
+  <ul>
+    <li><strong>Ticket vs. reality.</strong> Will flag tickets whose status doesn't match the PRs, CI runs and deploys behind them, with the evidence linked.</li>
+    <li><strong>Blocker loop.</strong> Every blocker will get an owner and an agreed date, with follow-ups until it's cleared.</li>
+    <li><strong>Trade-off planner.</strong> A new request will turn into scenarios (what moves, how much delay, engineering and AI cost) before you approve it.</li>
+  </ul>
+  <p class="close">Lake is designed to sit on top of Linear, not replace it, so there's nothing to migrate. No integrations are live yet.</p>
+
+  <h2>Start today, free</h2>
+  <ul>
+    <li><a href="https://github.com/getlake/lake-gate"><strong>lake-gate</strong></a>: a plan-approval gate for AI-coding teams.</li>
+    <li><a href="https://github.com/getlake/lake-meter"><strong>lake-meter</strong></a>: a per-step model and $ estimate for Claude Code plans, plus a per-run cap that stops and asks.</li>
+  </ul>
+  <p class="mit">Both are open source (MIT), with no Lake account or server: lake-meter runs fully on your machine, lake-gate runs in your repo and on GitHub.</p>
+
+  <h2>Who it's for</h2>
+  <p class="audience">Heads of Engineering and team leads with 5–30 engineers on Linear and GitHub who ship with Claude Code or Cursor.</p>
+
+  <h2>What design partners get</h2>
+  <ul>
+    <li>Early access as each piece comes together.</li>
+    <li>A direct line to the people building it.</li>
+    <li>A real say in what we build next.</li>
+  </ul>
+  <p class="close">Joining the list is free and commits you to nothing.</p>
+
+  <div class="cta-block">
+    <div class="cta">
+      <a class="btn" data-platform-waitlist-cta href="https://github.com/getlake/getlake.github.io/discussions/1">Join the design-partner list</a>
+    </div>
+    <p class="disclose">This opens a public GitHub discussion; share only what you're happy to have public.</p>
+  </div>
+
+  <footer>
+    <a href="/">Lake</a>
+    ·
+    <a href="https://github.com/getlake">GitHub</a>
+  </footer>
+</main>
+</body>
+</html>
