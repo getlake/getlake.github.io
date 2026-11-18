@@ -224,7 +224,7 @@ section h2{font-size:34px}.sec{padding:70px 0}.core{padding:70px 0}
 .p-note{font-size:13px;color:#3f5751;margin-top:8px;min-height:44px;display:flex;align-items:center;flex-wrap:wrap;gap:0 4px}.p-note a{color:var(--teal-d);text-decoration:underline;text-underline-offset:3px;display:inline-flex;min-height:44px;align-items:center}
 .offer-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px;margin:30px auto 0;position:relative;z-index:1;text-align:left}
 .offer{background:#fff;border:1px solid #d3e5da;border-radius:20px;padding:20px;box-shadow:0 4px 20px #073f4b0b}.offer b{display:block;font-size:18px;font-weight:600;letter-spacing:-.015em;color:var(--ink)}.offer span{display:block;font-size:14px;color:var(--ink-2);margin-top:4px;line-height:1.55}
-.footer a[href$="LICENSE"]{color:var(--teal-d);text-decoration:underline;text-underline-offset:3px}
+.footer a[href="/license/"]{color:var(--teal-d);text-decoration:underline;text-underline-offset:3px}
 @media(max-width:640px){.offer-row{grid-template-columns:1fr}.price b{font-size:38px}.product .install code{white-space:normal;overflow-wrap:break-word;min-width:0;line-height:1.5}}
 .install code .nw{white-space:nowrap}
 .p-meta span.free{color:#13705d}
