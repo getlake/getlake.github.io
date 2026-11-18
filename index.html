@@ -3,54 +3,180 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lake</title>
-<meta name="description" content="Tools for AI coding agents. A model for every step, a cap that stops and asks. Your coding agent waits for a real yes on plans that need one. Free and MIT licensed. No Lake server or account, no telemetry in the tools.">
+<title>Lake · Cost and plan control for AI coding agents</title>
+<meta name="description" content="Lake prices every step of your coding agent's plan, caps the run, and waits for a teammate's yes before it builds. lake-meter and lake-gate are free and open source (MIT). No Lake server or account.">
 <meta name="theme-color" content="#0e7c7b">
-<meta property="og:title" content="Lake">
-<meta property="og:description" content="Tools for AI coding agents. Free and MIT licensed. No Lake server or account, no telemetry in the tools.">
+<meta property="og:title" content="Lake · Cost and plan control for AI coding agents">
+<meta property="og:description" content="A price before your coding agent starts, and a real yes before it builds. Free and open source (MIT). No Lake server or account.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getlake.dev/">
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://getlake.dev/">
-<style>
-  :root { --bg:#0b1212; --card:#122019; --ink:#e8f3f0; --muted:#9bb8b3; --accent:#0e7c7b; --line:#1e3330; }
-  * { box-sizing:border-box; }
-  body { margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; }
-  main { max-width:720px; margin:0 auto; padding:72px 24px; }
-  .mark { font-weight:700; letter-spacing:.04em; font-size:14px; text-transform:uppercase; color:var(--accent); }
-  h1 { font-size:2rem; font-weight:650; margin:12px 0 8px; letter-spacing:-.02em; }
-  .lede { color:var(--muted); margin:0 0 36px; max-width:40em; }
-  .grid { display:grid; gap:16px; }
-  @media (min-width:640px) { .grid { grid-template-columns:1fr 1fr; } }
-  a.card { display:block; text-decoration:none; color:inherit; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px; }
-  a.card:hover, a.card:focus-visible { border-color:var(--accent); outline:none; }
-  a.card h2 { margin:0 0 8px; font-size:1.15rem; }
-  a.card p { margin:0; color:var(--muted); }
-  footer { margin-top:48px; color:var(--muted); font-size:14px; }
-  footer a { color:var(--ink); }
-</style>
+<link rel="icon" href="/assets/logo-mark.svg">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
 <script data-goatcounter="https://lakehq.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
-<main>
-  <div class="mark">Lake</div>
-  <h1>Tools for AI coding agents.</h1>
-  <p class="lede">Free and MIT licensed. No Lake server or account, no telemetry in the tools. lake-meter runs on your machine; lake-gate runs in your repo and on GitHub.</p>
-  <div class="grid">
-    <a class="card" href="/lake-meter/">
-      <h2>lake-meter</h2>
-      <p>A model for every step, a cap that stops and asks.<br>A per-step model and $ estimate before you approve, then a per-run cap that stops and asks.</p>
-    </a>
-    <a class="card" href="/lake-gate/">
-      <h2>lake-gate</h2>
-      <p>Your coding agent waits for a real yes on plans that need one.</p>
-    </a>
+<a class="skip" href="#main">Skip to content</a>
+<svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  <symbol id="up" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+  <symbol id="down" viewBox="0 0 24 24"><path d="M12 5v14m-6-6 6 6 6-6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h9"/></symbol>
+  <symbol id="github" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 3.3 5.8 3.6 5.8 3.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 10c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+  <symbol id="open" viewBox="0 0 24 24"><path d="M8 7 3 12l5 5m8-10 5 5-5 5M14 4l-4 16"/></symbol>
+  <symbol id="laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M2 19h20"/></symbol>
+  <symbol id="users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5m1-11a3 3 0 0 1 0 6m2 5c0-2-1-3.5-2.5-4.3"/></symbol>
+  <symbol id="wave" viewBox="0 0 24 24"><path d="M2 9c3-3 5-3 8 0s5 3 8 0 3-2 4-2M2 15c3-3 5-3 8 0s5 3 8 0 3-2 4-2"/></symbol>
+  <symbol id="ticket" viewBox="0 0 24 24"><path d="M4 7h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4V7Z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></symbol>
+  <symbol id="loop" viewBox="0 0 24 24"><path d="M17 3l3 3-3 3M4 11V9a3 3 0 0 1 3-3h13M7 21l-3-3 3-3m13-2v2a3 3 0 0 1-3 3H4"/></symbol>
+  <symbol id="scale" viewBox="0 0 24 24"><path d="M12 4v16M6 20h12M5 8h14M5 8l-3 6a3 3 0 0 0 6 0L5 8Zm14 0-3 6a3 3 0 0 0 6 0l-3-6Z"/></symbol>
+</svg>
+<header class="nav container">
+  <a class="wordmark" href="/" aria-label="Lake home"><img src="/assets/logo-mark.svg" alt="" width="32" height="32"><span>Lake<span class="dot">.</span></span></a>
+  <nav aria-label="Main">
+    <a href="/lake-meter/">lake-meter</a>
+    <a href="/lake-gate/">lake-gate</a>
+    <a href="/platform/" class="keep">For teams</a>
+    <a class="button compact ghost" href="https://github.com/getlake" aria-label="Lake on GitHub"><svg class="i"><use href="#github"/></svg><span class="gh-label">GitHub</span></a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <img class="landscape" src="/assets/lake-editorial-scene.svg" alt="" fetchpriority="high">
+  <span class="sun" aria-hidden="true"></span>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="small-line"></span> Cost and plan control for AI coding agents</p>
+      <h1 id="hero-title">Agents that ship <em>on plan and on budget.</em></h1>
+      <p class="lede">Lake puts a price on every step before your coding agent starts, caps the run while it works, and waits for <strong>a teammate's real yes</strong> before it builds.</p>
+      <div class="hero-ctas">
+        <a class="button" href="#tools">Pick a free tool <svg class="i"><use href="#down"/></svg></a>
+        <a class="text-link" href="/lake-gate/app/#/demo">Try the live demo <svg class="i"><use href="#up"/></svg></a>
+      </div>
+      <ul class="chips" aria-label="What you get">
+        <li class="chip"><svg class="i"><use href="#open"/></svg>Open source, MIT</li>
+        <li class="chip"><svg class="i"><use href="#laptop"/></svg>No Lake server or account</li>
+        <li class="chip"><svg class="i"><use href="#check"/></svg>Claude Code &amp; Cursor</li>
+      </ul>
+    </div>
+
+    <div class="flow" aria-label="Illustration: a sample plan is priced by lake-meter, then approved in lake-gate">
+      <div class="win plan">
+        <div class="win-bar"><i></i><i></i><i></i><span>plan.md</span><span class="tag">ESTIMATE</span></div>
+        <div class="plan-body">
+          <div class="plan-title"><b>Add webhook retries</b><small>4 steps</small></div>
+          <ol>
+            <li><span class="n">01</span><span class="t">Retry queue with backoff</span><span class="model m">Sonnet</span><span class="c">$0.40–0.90</span></li>
+            <li><span class="n">02</span><span class="t">Idempotent retries + migration</span><span class="model h">Opus</span><span class="c">$1.10–2.40</span></li>
+            <li><span class="n">03</span><span class="t">Fix typo in README</span><span class="model l">Haiku</span><span class="c">$0.02</span></li>
+            <li><span class="n">04</span><span class="t">Failure-path tests</span><span class="model m">Sonnet</span><span class="c">$0.30–0.70</span></li>
+          </ol>
+          <div class="cap"><span>Run cap</span><span class="bar"><i style="--w:58%"></i></span><b>$5.00</b></div>
+        </div>
+      </div>
+      <div class="win gate">
+        <header><img src="/assets/logo-mark.svg" alt=""><span>lake/plan-approval</span><span class="state">Waiting</span></header>
+        <p>Build waits for a yes on this exact plan.<span>plan v5c19e7a2</span></p>
+        <div class="row"><span class="avatar" aria-hidden="true">MK</span><span class="avatar" aria-hidden="true" style="margin-left:-14px;background:#e3f1f1;color:#0b6262">JS</span><span class="approve">Approve<svg class="i"><use href="#check"/></svg></span></div>
+      </div>
+      <span class="ripple-ring" aria-hidden="true"></span>
+      <p class="visual-note">Illustration with a sample plan. Estimates are examples.</p>
+    </div>
   </div>
-  <footer>
-    <a href="https://github.com/getlake">GitHub</a>
-    ·
-    <a href="/platform/">Design partners</a>
-  </footer>
+</section>
+
+<section class="sec container" id="tools" aria-labelledby="tools-title">
+  <div class="sec-head">
+    <div>
+      <p class="section-index">01 · The tools</p>
+      <h2 id="tools-title">Two small tools. <em>Free to use, today.</em></h2>
+    </div>
+    <p>One keeps a solo run on budget. One keeps a team's agents on the plan everyone agreed to. Install either in one command, and remove it just as fast.</p>
+  </div>
+
+  <div class="products">
+    <article class="product">
+      <div class="p-art" aria-hidden="true">
+        <svg class="waves" viewBox="0 0 600 150" preserveAspectRatio="none"><path d="M0 70C90 40 170 46 260 70s180 30 340 0v80H0Z" fill="#a7dbd3" opacity=".55"/><path d="M0 98c90-26 180-22 270 2s190 22 330-6v56H0Z" fill="#4cb7b1" opacity=".45"/><path d="M0 124c100-18 190-14 290 4s180 12 310-4v26H0Z" fill="#0e7c7b" opacity=".5"/></svg>
+        <div class="mini"><div class="bars"><i></i><i></i><i></i><i></i></div><span class="capline"></span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-meta"><span class="free">Free</span><span>Solo dev</span><span>Claude Code</span></div>
+        <h3>lake-meter</h3>
+        <p class="line">A model for every step, a cap that stops and asks.</p>
+        <p class="desc">Before you approve a plan, see the right model and a $ range for each step. During the run, your cap pauses Claude and asks before it spends more. Everything stays on your machine.</p>
+        <div class="install"><code><span class="prompt">$</span>npx lake-meter init</code><button class="copy" type="button" data-copy="npx lake-meter init" aria-label="Copy install command"><svg class="i"><use href="#copy"/></svg><span class="idle">Copy</span><span class="done">Copied</span></button></div>
+        <div class="p-ctas">
+          <a class="button" href="/lake-meter/">Explore lake-meter <svg class="i"><use href="#arrow"/></svg></a>
+          <a class="text-link" href="https://github.com/getlake/lake-meter"><svg class="i"><use href="#github"/></svg>Source</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="p-art" aria-hidden="true">
+        <svg class="waves" viewBox="0 0 600 150" preserveAspectRatio="none"><path d="M0 64c110-30 200-26 300 2s200 26 300-4v88H0Z" fill="#a7dbd3" opacity=".55"/><path d="M0 96c100-24 190-18 290 4s200 20 310-8v58H0Z" fill="#4cb7b1" opacity=".45"/><path d="M0 122c110-16 200-12 300 6s190 10 300-6v28H0Z" fill="#073f4b" opacity=".45"/></svg>
+        <div class="mini"><div class="stamp"><span class="tick"><svg class="i"><use href="#check"/></svg></span><span>Approved by a teammate<small>plan v5c19e7a2</small></span></div></div>
+      </div>
+      <div class="p-body">
+        <div class="p-meta"><span class="free">Free</span><span>Teams</span><span>Claude Code &amp; Cursor</span></div>
+        <h3>lake-gate</h3>
+        <p class="line">Your coding agent waits for a real yes.</p>
+        <p class="desc">The agent's plan lands in the repo, and the build waits until a teammate approves that exact version. Edit the plan and the approval expires. Runs in your repo and on GitHub.</p>
+        <div class="install"><code><span class="prompt">$</span>npx lake-gate init</code><button class="copy" type="button" data-copy="npx lake-gate init" aria-label="Copy install command"><svg class="i"><use href="#copy"/></svg><span class="idle">Copy</span><span class="done">Copied</span></button></div>
+        <div class="p-ctas">
+          <a class="button" href="/lake-gate/">Explore lake-gate <svg class="i"><use href="#arrow"/></svg></a>
+          <a class="text-link" href="/lake-gate/app/#/demo">Live demo <svg class="i"><use href="#up"/></svg></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="core" aria-labelledby="core-title">
+  <div class="container core-grid">
+    <div>
+      <p class="section-index">02 · Open core</p>
+      <h2 id="core-title">Open source at the core. <em>Paid when your team needs more.</em></h2>
+      <p class="quiet">You can read every line the tools run inside your repo. That's the point.</p>
+    </div>
+    <ul class="pillars">
+      <li><span class="ic"><svg class="i"><use href="#open"/></svg></span><div><b>Free and MIT licensed</b><p>lake-meter and lake-gate are open source and free to use, on your own or with your whole team.</p></div></li>
+      <li><span class="ic"><svg class="i"><use href="#laptop"/></svg></span><div><b>Runs where you already work</b><p>lake-meter runs fully on your machine. lake-gate runs in your repo and on GitHub. No Lake account, no Lake server, no telemetry in the tools.</p></div></li>
+      <li><span class="ic"><svg class="i"><use href="#users"/></svg></span><div><b>A team tier, on top <span class="paid">PAID</span></b><p>We're building a paid tier for teams: shared budgets, approval history and one view across repos. The free tools never depend on it.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec container" aria-labelledby="teams-title">
+  <div class="partner-card">
+    <img class="ripple" src="/assets/ripple-mascot.svg" alt="" width="72" height="72">
+    <p class="section-index">03 · For teams</p>
+    <h2 id="teams-title">Running an eng team on Linear?</h2>
+    <p class="body">We're building Lake for teams: a layer on top of Linear and GitHub that checks tickets against what shipped, keeps blockers moving and prices trade-offs. We're looking for a few design partners.</p>
+    <div class="partner-ctas">
+      <a class="button" href="/platform/">See Lake for teams <svg class="i"><use href="#arrow"/></svg></a>
+    </div>
+    <p class="microcopy">Early prototype. Nothing to migrate, it sits on top of Linear.</p>
+  </div>
+</section>
 </main>
+
+<footer class="footer container">
+  <a class="wordmark small" href="/" aria-label="Lake home"><img src="/assets/logo-mark.svg" alt="" width="24" height="24"><span>Lake<span class="dot">.</span></span></a>
+  <span>lake-meter and lake-gate are MIT licensed.</span>
+  <span class="grow"></span>
+  <span>Cookieless visit counts, no personal data.</span>
+  <a href="/lake-meter/">lake-meter</a>
+  <a href="/lake-gate/">lake-gate</a>
+  <a href="/platform/">For teams</a>
+  <a href="https://github.com/getlake">GitHub</a>
+</footer>
 </body>
 </html>
