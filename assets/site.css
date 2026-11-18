@@ -230,3 +230,5 @@ section h2{font-size:34px}.sec{padding:70px 0}.core{padding:70px 0}
 .p-meta span.free{color:#13705d}
 .offer span,.incl li,.sec-head p,.lede,.feat p,.pillars p,.partner-card .body,.microcopy{text-wrap:pretty}
 .install.two{align-items:center;padding-top:10px;padding-bottom:10px}.install.two code{display:flex;flex-direction:column;gap:2px;line-height:1.6;min-width:0}.install.two .ln{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline}.install.two .cmd{white-space:normal}
+@media(max-width:400px){.install.two{padding-left:12px;gap:6px}.install.two code{font-size:12.5px}.install.two .prompt{margin-right:6px}}
+@media(max-width:340px){.install.two code{font-size:12px}}
