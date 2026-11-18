@@ -216,3 +216,15 @@ section h2{font-size:34px}.sec{padding:70px 0}.core{padding:70px 0}
 .eyebrow .small-line{display:none}.p-ctas{gap:4px 16px}.p-ctas .button{flex:1 1 100%}.p-ctas .text-link{margin:0 auto}.core{padding:70px 0 140px}.partner-card{padding-bottom:64px}}
 @media(max-width:400px){.trade{width:100%}.opt{padding:10px}.opt b{white-space:nowrap}.win-bar i{display:none}.win-bar span{margin-left:0}.win-bar .tag{margin-left:auto}.nav{gap:8px}.nav nav{gap:12px}.wordmark{font-size:21px;gap:6px}.wordmark img{width:28px;height:28px}.product-tag{padding:2px 8px}.nav .full{display:none}.nav .short{display:inline}.nav nav>a.keep{min-width:44px;justify-content:center;padding:0 8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.plan li,.tk{opacity:1}.cap .bar i{width:var(--w,58%)}}
+
+/* pricing + founding offer (reposition, 18 Nov) */
+.price{display:flex;align-items:baseline;gap:10px;margin-top:8px}.price b{font-size:44px;font-weight:600;letter-spacing:-.04em;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}.price span{font-size:15px;color:var(--muted)}
+.incl{margin-top:20px}.incl li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--ink-2);line-height:1.5}.incl li:first-child{border-top:1px solid var(--line)}.incl .i{width:18px;height:18px;color:var(--ok);margin-top:2px}
+.product .install{margin-top:auto}.incl{margin-bottom:26px}
+.p-note{font-size:13px;color:#3f5751;margin-top:8px;min-height:44px;display:flex;align-items:center;flex-wrap:wrap;gap:0 4px}.p-note a{color:var(--teal-d);text-decoration:underline;text-underline-offset:3px;display:inline-flex;min-height:44px;align-items:center}
+.offer-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px;margin:30px auto 0;position:relative;z-index:1;text-align:left}
+.offer{background:#fff;border:1px solid #d3e5da;border-radius:20px;padding:20px;box-shadow:0 4px 20px #073f4b0b}.offer b{display:block;font-size:18px;font-weight:600;letter-spacing:-.015em;color:var(--ink)}.offer span{display:block;font-size:14px;color:var(--ink-2);margin-top:4px;line-height:1.55}
+.footer a[href$="LICENSE"]{color:var(--teal-d);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:640px){.offer-row{grid-template-columns:1fr}.price b{font-size:38px}.product .install code{white-space:normal;overflow-wrap:break-word;min-width:0;line-height:1.5}}
+.install code .nw{white-space:nowrap}
+.p-meta span.free{color:#13705d}
