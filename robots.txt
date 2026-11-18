@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://getlake.dev/sitemap.xml
