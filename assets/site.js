@@ -8,9 +8,11 @@
         const ta = Object.assign(document.createElement('textarea'), { value: text }); document.body.append(ta); ta.select();
         try { document.execCommand('copy'); } catch (_) {} ta.remove();
       }
+      const label = btn.getAttribute('aria-label');
       btn.classList.add('copied'); btn.setAttribute('aria-label', 'Copied');
-      const gc = window.goatcounter; if (gc && gc.count) gc.count({ path: 'copy-' + text.split(' ')[1], title: text, event: true });
-      setTimeout(() => { btn.classList.remove('copied'); btn.setAttribute('aria-label', 'Copy install command'); }, 1800);
+      const pkg = (text.match(/lake-(gate|meter)/) || ['copy'])[0];
+      const gc = window.goatcounter; if (gc && gc.count) gc.count({ path: 'copy-' + pkg, title: text, event: true });
+      setTimeout(() => { btn.classList.remove('copied'); btn.setAttribute('aria-label', label); }, 1800);
     });
   });
   const flow = document.querySelector('.flow');
