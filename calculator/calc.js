@@ -299,7 +299,7 @@
   <rect x="40" y="332" width="800" height="110" rx="16" fill="#052f39" stroke="#1f636e"/>
   <text x="62" y="364" font-family="${font}" font-size="15" font-weight="650" fill="#ffffff">One platform: Gate (plan approval) + Meter (cost caps &amp; model choice)</text>
   <text x="62" y="390" font-family="${mono}" font-size="12.5" fill="#b7deda">Formula: ${esc(fmtMoney(m.monthlySpend))} × ${state.w}% rework × ${state.k}% pre-code catch = ${esc(fmtMoney(m.intercepted))}/mo</text>
-  <text x="62" y="418" font-family="${font}" font-size="13.5" font-weight="600" fill="#a7dbd3">Lake Team: ${esc(fmtMoney(m.lakeTeamCost))}/mo ($15/dev) · ${esc(netLabel)} · 14-day free trial</text>
+  <text x="62" y="418" font-family="${font}" font-size="13.5" font-weight="600" fill="#a7dbd3">Lake Team: ${esc(fmtMoney(m.lakeTeamCost))}/mo ($15/dev) · ${esc(netLabel)} · Free tier + 14-day Team trial</text>
 
   <!-- Footer -->
   <text x="40" y="492" font-family="${mono}" font-size="12" fill="#90bdb9">Assumptions: ${state.w}% rework, ${state.k}% pre-code catch. Not a benchmark.</text>
@@ -360,7 +360,7 @@
 
   <!-- Install Bar -->
   <rect x="40" y="382" width="800" height="80" rx="14" fill="#073f4b"/>
-  <text x="62" y="410" font-family="${mono}" font-size="11.5" fill="#a7dbd3">REVIEW THE PLAN BEFORE CODE RUNS · 14-DAY FREE TRIAL</text>
+  <text x="62" y="410" font-family="${mono}" font-size="11.5" fill="#a7dbd3">REVIEW THE PLAN BEFORE CODE RUNS · FREE FOREVER TIER</text>
   <text x="62" y="438" font-family="${mono}" font-size="16" font-weight="600" fill="#ffffff">$ npm i -D lake-gate &amp;&amp; npx lake-gate init --cap 5</text>
 
   <!-- Footer -->
