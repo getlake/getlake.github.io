@@ -1,4 +1,4 @@
-/* getlake.dev: shared with the lake-meter and lake-gate landing system (tokens from /design/tokens.json) */
+/* getlake.dev: Lake, one product. Gate and Meter are capabilities. Tokens from /design/tokens.json */
 @font-face{font-family:Inter;src:url(/assets/inter.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
 :root{--ink:#073f4b;--ink-2:#35535a;--teal:#0e7c7b;--teal-d:#086b6c;--aqua:#4cb7b1;--mint:#a7dbd3;--mist:#f1f7f6;--paper:#fbfcf8;--sage:#f1f6ed;--line:#dce8df;--muted:#4b656c;--sun:#e9ba63;--warm:#c8a35e;--warm-bg:#fbf1e3;--ok:#19866f;--ok-bg:#e4f4ed;--ease:cubic-bezier(.2,.8,.2,1);--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -50,7 +50,7 @@ svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--ink-2);background:#ffffffe6;border:1px solid var(--line);border-radius:999px;padding:4px 11px 4px 10px;white-space:nowrap}
 .chip .i{width:14px;height:14px;color:var(--teal)}
 
-/* hero visual: a plan flows through lake-meter, then lake-gate */
+/* hero visual: a plan gets a cost (Meter), then a teammate approval (Gate) */
 .flow{position:relative;min-height:430px}
 .win{background:#fff;border:1px solid #d6e5dc;border-radius:20px;box-shadow:0 28px 80px #073f4b24;overflow:hidden}
 .win-bar{display:flex;align-items:center;gap:7px;padding:11px 16px;border-bottom:1px solid #edf3ef;font-size:12px;color:var(--muted)}
@@ -247,3 +247,15 @@ h1.h2{text-wrap:balance;font-size:52px;letter-spacing:-.04em;line-height:1.08;ma
 @media(max-width:1100px){h1.h2{font-size:44px}}
 @media(max-width:560px){.doc{padding:44px 0 72px}.doc h1{font-size:34px}h1.h2{font-size:34px}.doc-lede{font-size:16px}}
 .p-fine{font-size:12.5px;line-height:1.55;color:#3f5751;margin:4px 0 0}.p-fine code{font-size:.92em}
+
+/* capabilities: Gate and Meter */
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cap-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 24px;box-shadow:0 8px 28px #073f4b0a}
+.cap-card .kicker{font-size:12px;letter-spacing:.14em;font-weight:700;text-transform:uppercase;color:var(--teal-d);margin-bottom:10px}
+.cap-card h3{font-size:28px;letter-spacing:-.03em;margin:0 0 10px}
+.cap-card p{font-size:16px;line-height:1.6;color:var(--ink-2)}
+.cap-card .text-link{margin-top:12px}
+.cap-card ul{margin:12px 0 0;padding:0;list-style:none}
+.cap-card li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line);font-size:15px;color:var(--ink-2);line-height:1.5}
+.cap-card li .i{width:16px;height:16px;color:var(--ok);margin-top:3px}
+@media(max-width:900px){.cards2{grid-template-columns:1fr}}

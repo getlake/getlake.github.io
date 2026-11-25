@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pricing · Lake</title>
-<meta name="description" content="Lake pricing: Solo $12/month, Team $15 per user/month, both with a 14-day free trial. Founding offer for the first 50 users.">
+<meta name="description" content="Lake pricing for teams running AI coding agents: Solo $12/month, Team $15 per user/month, both with a 14-day free trial. Gate and Meter included. Founding offer for the first 50 users.">
 <meta name="theme-color" content="#0e7c7b">
 <link rel="canonical" href="https://getlake.dev/pricing/">
 <link rel="icon" href="/assets/logo-mark.svg">
@@ -38,6 +38,7 @@
   <a class="wordmark" href="/" aria-label="Lake home"><img src="/assets/logo-mark.svg" alt="" width="32" height="32"><span>Lake<span class="dot">.</span></span></a>
   <nav aria-label="Main">
     <a href="/#how">How it works</a>
+    <a href="/platform/">Platform</a>
     <a href="/pricing/" class="keep">Pricing</a>
     <a class="button compact ghost" href="https://github.com/getlake/lake" aria-label="Lake on GitHub"><svg class="i"><use href="#github"/></svg><span class="gh-label">GitHub</span></a>
   </nav>
@@ -63,9 +64,9 @@
         <h3>Solo</h3>
         <p class="price"><b>$12</b><span>per month</span></p>
         <ul class="incl">
-          <li><svg class="i"><use href="#check"/></svg>Plan review for your own agent runs</li>
-          <li><svg class="i"><use href="#check"/></svg>A model and a cost for every step</li>
-          <li><svg class="i"><use href="#check"/></svg>A run cap that stops and asks</li>
+          <li><svg class="i"><use href="#check"/></svg>Gate: plan review for your own agent runs</li>
+          <li><svg class="i"><use href="#check"/></svg>Meter: a model and a cost for every step</li>
+          <li><svg class="i"><use href="#check"/></svg>Meter: a run cap that stops and asks</li>
           <li><svg class="i"><use href="#check"/></svg>Review app and MCP for Claude Code &amp; Cursor</li>
         </ul>
         <div class="install two"><code><span class="ln"><span class="prompt">$</span><span class="cmd"><span class="nw">npm i -D lake-gate &amp;&amp;</span> <span class="nw">npx lake-gate init</span> <span class="nw">--try --cap 10</span></span></span></code><button class="copy" type="button" data-copy="npm i -D lake-gate &amp;&amp; npx lake-gate init --try --cap 10" aria-label="Copy install command"><svg class="i"><use href="#copy"/></svg><span class="idle">Copy</span><span class="done">Copied</span></button></div>
@@ -84,9 +85,9 @@
         <p class="price"><b>$15</b><span>per user, per month</span></p>
         <ul class="incl">
           <li><svg class="i"><use href="#check"/></svg>Everything in Solo</li>
-          <li><svg class="i"><use href="#check"/></svg>Teammate approval of the exact plan version</li>
-          <li><svg class="i"><use href="#check"/></svg>A PR check, so unapproved plans can't merge</li>
-          <li><svg class="i"><use href="#check"/></svg>Budget approval above a limit you set</li>
+          <li><svg class="i"><use href="#check"/></svg>Gate: teammate or manager approval of the exact plan version</li>
+          <li><svg class="i"><use href="#check"/></svg>Gate: a PR check, so unapproved plans can't merge</li>
+          <li><svg class="i"><use href="#check"/></svg>Meter: budget-owner approval above a limit you set</li>
         </ul>
         <div class="install two"><code><span class="ln"><span class="prompt">$</span><span class="cmd"><span class="nw">npm i -D lake-gate</span></span></span><span class="ln"><span class="prompt">$</span><span class="cmd"><span class="nw">npx lake-gate init</span> <span class="nw">--cap 5</span></span></span></code><button class="copy" type="button" data-copy="npm i -D lake-gate &amp;&amp; npx lake-gate init --cap 5" aria-label="Copy install command"><svg class="i"><use href="#copy"/></svg><span class="idle">Copy</span><span class="done">Copied</span></button></div>
         <p class="p-note">Run it in your repo, then commit. <a href="https://github.com/getlake/lake#install">Setup guide</a></p>
