@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Agent Plan Cost &amp; Rework Calculator · Lake</title>
+<meta name="description" content="Calculate your team's monthly AI coding agent spend, how much goes to reworked or rejected runs, and what pre-code plan review and run caps would intercept. Download a shareable receipt.">
+<meta name="theme-color" content="#0e7c7b">
+<meta property="og:title" content="AI Agent Plan Cost &amp; Rework Calculator · Lake">
+<meta property="og:description" content="Estimate monthly AI coding spend, rework waste, and what pre-code plan approval (Gate) and run caps (Meter) intercept. Download a Dev or FinOps receipt.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getlake.dev/calculator/">
+<meta property="og:site_name" content="Lake">
+<meta property="og:image" content="https://getlake.dev/assets/og-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Agent Plan Cost &amp; Rework Calculator · Lake">
+<meta name="twitter:description" content="Estimate monthly AI coding spend, rework waste, and what pre-code plan approval and run caps intercept.">
+<link rel="canonical" href="https://getlake.dev/calculator/">
+<link rel="icon" href="/assets/logo-mark.svg">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/calculator/calc.css">
+<script data-goatcounter="https://lakehq.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script src="/assets/site.js" defer></script>
+<script src="/calculator/calc.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  <symbol id="up" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h9"/></symbol>
+  <symbol id="download" viewBox="0 0 24 24"><path d="M12 4v11m-5-5 5 5 5-5M5 19h14"/></symbol>
+  <symbol id="link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+  <symbol id="github" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 3.3 5.8 3.6 5.8 3.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 10c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+</svg>
+
+<header class="nav container">
+  <a class="wordmark" href="/" aria-label="Lake home"><img src="/assets/logo-mark.svg" alt="" width="32" height="32"><span>Lake<span class="dot">.</span></span></a>
+  <nav aria-label="Main">
+    <a href="/#how">How it works</a>
+    <a href="/platform/">Platform</a>
+    <a href="/pricing/" class="keep">Pricing</a>
+    <a class="button compact ghost" href="https://github.com/getlake/lake" aria-label="Lake on GitHub"><svg class="i"><use href="#github"/></svg><span class="gh-label">GitHub</span></a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="calc-hero">
+    <div class="container">
+      <p class="eyebrow"><span class="small-line"></span> Free AI Factory Utility · No account required</p>
+      <h1>AI agent plan cost <em>&amp; rework calculator.</em></h1>
+      <p class="calc-lede">Estimate how much your team spends on coding agents each month, how much burns on runs that get reworked or rejected, and what pre-code plan review (<strong>Gate</strong>) and run caps (<strong>Meter</strong>) would intercept. Every default is an adjustable assumption.</p>
+      <div class="preset-bar" role="group" aria-label="Quick team presets">
+        <span class="preset-label">Presets:</span>
+        <button type="button" class="preset-btn" data-preset="solo">Solo dev (1)</button>
+        <button type="button" class="preset-btn is-active" data-preset="startup">Startup squad (8)</button>
+        <button type="button" class="preset-btn" data-preset="scaleup">AI factory (25)</button>
+        <button type="button" class="preset-btn" data-preset="org">Eng org (75)</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container calc-shell" aria-label="Calculator inputs and receipt">
+    <div class="calc-grid">
+      <!-- Left column: Inputs -->
+      <form class="calc-panel" id="calc-form" onsubmit="return false">
+        <div class="panel-head">
+          <h2>1. Your team &amp; agent inputs</h2>
+          <button type="button" class="reset-link" id="reset-btn">Reset defaults</button>
+        </div>
+
+        <div class="field-row two-col">
+          <div class="field">
+            <label for="team-size">Engineers running agents</label>
+            <div class="input-wrap">
+              <input id="team-size" type="number" min="1" max="1000" step="1" value="8">
+              <span class="unit">devs</span>
+            </div>
+            <input id="team-size-range" type="range" min="1" max="100" step="1" value="8" aria-label="Engineers running agents slider">
+          </div>
+
+          <div class="field">
+            <label for="runs-per-week">Agent runs / dev / week</label>
+            <div class="input-wrap">
+              <input id="runs-per-week" type="number" min="1" max="500" step="1" value="15">
+              <span class="unit">runs/wk</span>
+            </div>
+            <input id="runs-per-week-range" type="range" min="1" max="80" step="1" value="15" aria-label="Agent runs per developer per week slider">
+          </div>
+        </div>
+        <p class="field-hint" id="runs-summary">Total volume: <b>120 runs/week</b> (~520 runs/month at 4.33 weeks/mo)</p>
+
+        <div class="divider"></div>
+
+        <div class="field">
+          <div class="label-row">
+            <label>Model mix <span class="badge-asm">Adjustable</span></label>
+            <span class="mix-total" id="mix-status">Total: 100%</span>
+          </div>
+          <p class="field-hint">Share of runs by model tier (auto-normalized to 100% in cost math).</p>
+          <div class="mix-grid">
+            <div class="mix-item">
+              <span class="model h">Frontier / Heavy</span>
+              <small>Opus-class</small>
+              <div class="input-wrap compact"><input id="mix-heavy" type="number" min="0" max="100" step="5" value="35"><span class="unit">%</span></div>
+            </div>
+            <div class="mix-item">
+              <span class="model m">Standard</span>
+              <small>Sonnet-class</small>
+              <div class="input-wrap compact"><input id="mix-std" type="number" min="0" max="100" step="5" value="55"><span class="unit">%</span></div>
+            </div>
+            <div class="mix-item">
+              <span class="model l">Light / Fast</span>
+              <small>Haiku-class</small>
+              <div class="input-wrap compact"><input id="mix-light" type="number" min="0" max="100" step="5" value="10"><span class="unit">%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="field">
+          <div class="label-row">
+            <label>Typical run cost or tokens</label>
+            <div class="seg" role="tablist" aria-label="Cost input mode">
+              <button type="button" role="tab" id="mode-cost-btn" class="seg-btn is-active" aria-selected="true">$ / run</button>
+              <button type="button" role="tab" id="mode-tokens-btn" class="seg-btn" aria-selected="false">Tokens / run</button>
+            </div>
+          </div>
+
+          <div id="mode-cost-box" class="mode-box">
+            <div class="field-row">
+              <label for="cost-per-run" class="sub-label">Average blended cost per agent run <span class="badge-asm">Adjustable assumption</span></label>
+              <div class="input-wrap">
+                <span class="prefix">$</span>
+                <input id="cost-per-run" type="number" min="0.05" max="200" step="0.10" value="2.50">
+                <span class="unit">USD</span>
+              </div>
+              <input id="cost-per-run-range" type="range" min="0.20" max="25" step="0.10" value="2.50" aria-label="Average cost per run slider">
+            </div>
+            <p class="field-hint">Enter your own observed CLI/API average. Toggle <b>Tokens / run</b> to compute directly from published API list rates.</p>
+          </div>
+
+          <div id="mode-tokens-box" class="mode-box" hidden>
+            <div class="field-row two-col">
+              <div class="field">
+                <label for="input-tokens" class="sub-label">Input tokens / run (incl. cache reads)</label>
+                <div class="input-wrap">
+                  <input id="input-tokens" type="number" min="1000" max="20000000" step="10000" value="600000">
+                  <span class="unit">tok</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="output-tokens" class="sub-label">Output tokens / run</label>
+                <div class="input-wrap">
+                  <input id="output-tokens" type="number" min="500" max="2000000" step="1000" value="25000">
+                  <span class="unit">tok</span>
+                </div>
+              </div>
+            </div>
+            <p class="field-hint" id="token-rate-note">Uses Lake Meter's published API table (verified 2026-11-12) with 85% cache read / 10% cache write / 5% uncached input: Opus 5.5 ($4/$0.20/$20 per 1M), Sonnet 5.5 ($2/$0.10/$10), Haiku 5.5 ($0.10/$0.01/$0.50). Blended run cost: <b id="computed-run-cost">$0.00</b>.</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="field-row two-col">
+          <div class="field">
+            <label for="rework-pct">Runs reworked or rejected <span class="badge-asm">Adjustable assumption</span></label>
+            <div class="input-wrap">
+              <input id="rework-pct" type="number" min="0" max="100" step="1" value="20">
+              <span class="unit">%</span>
+            </div>
+            <input id="rework-pct-range" type="range" min="0" max="80" step="1" value="20" aria-label="Percent of runs reworked or rejected slider">
+            <p class="field-hint">Share of agent runs whose code is rewritten, reverted, or abandoned in PR review.</p>
+          </div>
+
+          <div class="field">
+            <label for="catch-pct">Rework caught by plan review + caps <span class="badge-asm">Adjustable assumption</span></label>
+            <div class="input-wrap">
+              <input id="catch-pct" type="number" min="0" max="100" step="5" value="50">
+              <span class="unit">%</span>
+            </div>
+            <input id="catch-pct-range" type="range" min="0" max="90" step="5" value="50" aria-label="Percent of rework caught by plan review and caps slider">
+            <p class="field-hint">Portion of those bad runs stopped at the plan or capped before full code generation.</p>
+          </div>
+        </div>
+      </form>
+
+      <!-- Right column: Results + Shareable Receipt -->
+      <div class="calc-results">
+        <!-- Headline Metrics -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="m-label">Monthly agent spend</span>
+            <strong class="m-val" id="out-monthly-spend">$1,299</strong>
+            <span class="m-sub" id="out-monthly-runs">520 runs/mo · $2.50/run</span>
+          </div>
+          <div class="metric-card warn">
+            <span class="m-label">Spend on work that didn't survive</span>
+            <strong class="m-val" id="out-wasted-spend">$260</strong>
+            <span class="m-sub" id="out-wasted-sub">20% reworked or rejected</span>
+          </div>
+          <div class="metric-card good">
+            <span class="m-label">Intercepted by plan review + caps</span>
+            <strong class="m-val" id="out-intercepted">$130</strong>
+            <span class="m-sub" id="out-intercepted-sub">$1,559/yr run-rate protected</span>
+          </div>
+        </div>
+
+        <!-- Explicit Formula Box -->
+        <div class="formula-box" id="formula-box">
+          <div class="formula-head">
+            <span>Formula &amp; explicit assumptions (no black-box benchmarks)</span>
+            <span id="lake-roi-chip" class="roi-chip">Lake Team: $120/mo ($15/dev)</span>
+          </div>
+          <code class="formula-lines" id="formula-lines">
+Monthly spend = 8 devs × 15 runs/wk × 4.33 wks × $2.50 = $1,299.00/mo
+Work that didn't survive = $1,299.00 × 20% = $259.80/mo
+Intercepted by Gate + Meter = $259.80 × 50% = $129.90/mo ($1,558.80/yr)
+          </code>
+        </div>
+
+        <!-- Shareable Receipt -->
+        <div class="receipt-wrap">
+          <div class="receipt-toolbar">
+            <div class="seg" role="tablist" aria-label="Receipt framing">
+              <button type="button" role="tab" id="view-dev-btn" class="seg-btn is-active" aria-selected="true">Developer receipt</button>
+              <button type="button" role="tab" id="view-finops-btn" class="seg-btn" aria-selected="false">Manager / FinOps card</button>
+            </div>
+            <div class="receipt-actions">
+              <button type="button" class="act-btn" id="dl-png-btn"><svg class="i"><use href="#download"/></svg> PNG</button>
+              <button type="button" class="act-btn" id="dl-svg-btn"><svg class="i"><use href="#download"/></svg> SVG</button>
+              <button type="button" class="act-btn" id="copy-link-btn"><svg class="i"><use href="#link"/></svg> <span>Share URL</span></button>
+              <button type="button" class="act-btn" id="copy-slack-btn"><svg class="i"><use href="#copy"/></svg> <span>Slack text</span></button>
+            </div>
+          </div>
+
+          <!-- Live SVG Receipt Preview -->
+          <div class="receipt-preview" id="receipt-preview" aria-label="Shareable cost and rework receipt preview"></div>
+        </div>
+
+        <!-- Unified Lake CTA -->
+        <div class="calc-cta-card">
+          <div class="cta-copy">
+            <p class="kicker">Lake · One platform for your AI factory</p>
+            <h3>Stop paying for code from the wrong plan.</h3>
+            <p><strong>Gate</strong> holds every agent plan for teammate or manager approval. <strong>Meter</strong> prices every step and stops runaway runs at your cap. Start your 14-day free trial in your repo.</p>
+          </div>
+          <div class="cta-actions">
+            <div class="install two">
+              <code><span class="ln"><span class="prompt">$</span><span class="cmd"><span class="nw">npm i -D lake-gate &amp;&amp;</span> <span class="nw">npx lake-gate init</span> <span class="nw">--cap 5</span></span></span></code>
+              <button class="copy" type="button" data-copy="npm i -D lake-gate &amp;&amp; npx lake-gate init --cap 5" aria-label="Copy Lake install command"><svg class="i"><use href="#copy"/></svg><span class="idle">Copy</span><span class="done">Copied</span></button>
+            </div>
+            <div class="cta-buttons">
+              <a class="button" id="cta-trial-link" href="/?utm_source=calculator&utm_medium=tool&utm_campaign=ai_factory_calc&utm_content=start_trial#start">Start 14-day free trial <svg class="i"><use href="#arrow"/></svg></a>
+              <a class="button ghost" id="cta-pricing-link" href="/pricing/?utm_source=calculator&utm_medium=tool&utm_campaign=ai_factory_calc&utm_content=pricing">View Team pricing</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer container">
+  <a class="wordmark small" href="/" aria-label="Lake home"><img src="/assets/logo-mark.svg" alt="" width="24" height="24"><span>Lake<span class="dot">.</span></span></a>
+  <span>© 2026 Lake · <a href="/license/">Lake License</a></span>
+  <span class="grow"></span>
+  <span>Cookieless visit counts, no personal data.</span>
+  <nav class="foot-links" aria-label="Footer"><a href="/platform/">Platform</a><a href="/lake-gate/">Gate</a><a href="/lake-meter/">Meter</a><a href="https://github.com/getlake/lake">GitHub</a></nav>
+  <nav class="foot-links" aria-label="Legal"><a href="/pricing/">Pricing</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/refund/">Refunds</a><a href="/contact/">Contact</a></nav>
+</footer>
+</body>
+</html>
