@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Code Waste Report · Lake</title>
+<meta name="description" content="Send us your Claude Code usage export and get a PDF report within 24 hours showing where tokens and money were wasted: rework, oversized models, runaway runs and plans nobody reviewed.">
+<meta property="og:title" content="Claude Code Waste Report · Lake">
+<meta property="og:description" content="Send your Claude Code usage export, get a PDF waste report within 24 hours. We read token and cost metadata only.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getlake.dev/waste-report/">
+<meta property="og:site_name" content="Lake">
+<meta property="og:image" content="https://getlake.dev/assets/og-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e7c7b">
+<link rel="canonical" href="https://getlake.dev/waste-report/">
+<link rel="icon" href="/assets/logo-mark.svg">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script data-goatcounter="https://lakehq.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script src="/assets/site.js" defer></script>
+<script src="/waste-report/waste.js" defer></script>
+<link rel="stylesheet" href="/waste-report/waste.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  <symbol id="up" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+  <symbol id="down" viewBox="0 0 24 24"><path d="M12 5v14m-6-6 6 6 6-6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h9"/></symbol>
+  <symbol id="github" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 3.3 5.8 3.6 5.8 3.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 10c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+  <symbol id="open" viewBox="0 0 24 24"><path d="M8 7 3 12l5 5m8-10 5 5-5 5M14 4l-4 16"/></symbol>
+  <symbol id="laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M2 19h20"/></symbol>
+  <symbol id="users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5m1-11a3 3 0 0 1 0 6m2 5c0-2-1-3.5-2.5-4.3"/></symbol>
+  <symbol id="wave" viewBox="0 0 24 24"><path d="M2 9c3-3 5-3 8 0s5 3 8 0 3-2 4-2M2 15c3-3 5-3 8 0s5 3 8 0 3-2 4-2"/></symbol>
+  <symbol id="ticket" viewBox="0 0 24 24"><path d="M4 7h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4V7Z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></symbol>
+  <symbol id="loop" viewBox="0 0 24 24"><path d="M17 3l3 3-3 3M4 11V9a3 3 0 0 1 3-3h13M7 21l-3-3 3-3m13-2v2a3 3 0 0 1-3 3H4"/></symbol>
+  <symbol id="scale" viewBox="0 0 24 24"><path d="M12 4v16M6 20h12M5 8h14M5 8l-3 6a3 3 0 0 0 6 0L5 8Zm14 0-3 6a3 3 0 0 0 6 0l-3-6Z"/></symbol>
+  <symbol id="coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.4 0-2.5.8-2.5 2s1.1 1.6 2.5 2 2.5.9 2.5 2-1.1 2-2.5 2c-1.1 0-2.1-.5-2.6-1.5M12 6.5V8m0 8v1.5"/></symbol>
+  <symbol id="pause" viewBox="0 0 24 24"><rect x="7" y="5" width="3" height="14" rx="1"/><rect x="14" y="5" width="3" height="14" rx="1"/></symbol>
+  <symbol id="doc" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5m-5 4h5"/></symbol>
+</svg>
+<header class="nav container">
+  <a class="wordmark" href="/" aria-label="Lake home"><img src="/assets/logo-mark.svg" alt="" width="32" height="32"><span>Lake<span class="dot">.</span></span></a>
+  <nav aria-label="Main">
+    <a href="/#how">How it works</a>
+    <a href="/platform/">Platform</a>
+    <a href="/pricing/" class="keep">Pricing</a>
+    <a class="button compact ghost" href="https://github.com/getlake/lake" aria-label="Lake on GitHub"><svg class="i"><use href="#github"/></svg><span class="gh-label">GitHub</span></a>
+  </nav>
+</header>
+<main id="main">
+<article class="container doc">
+  <p class="section-index">Free for engineering teams</p>
+  <h1>Claude Code waste report</h1>
+  <p class="doc-lede">Send us your team's Claude Code usage export. Within 24 hours you get a PDF that shows where tokens and money went to waste, and what to change first. For eng leads, managers and whoever owns the AI budget.</p>
+  <p class="wr-ctas"><a class="button" href="#request">Request your report <svg class="i"><use href="#down"/></svg></a> <a class="text-link" href="/waste-report/sample-report.pdf">See a sample PDF <svg class="i"><use href="#arrow"/></svg></a></p>
+
+<section aria-labelledby="wr-what"><h2 id="wr-what">What the report shows</h2>
+<ul>
+<li><b>Rework:</b> sessions that burned tokens on work that was redone or thrown away, and roughly what that cost.</li>
+<li><b>Oversized models:</b> small steps run on the biggest, most expensive model, and what a cheaper pick would have cost.</li>
+<li><b>Runaway runs:</b> sessions and days far above your normal spend, the loops and retries that nobody stopped.</li>
+<li><b>Missing plan review:</b> large runs that started with no agreed plan, where a quick review would have been the cheapest place to say no.</li>
+<li><b>What to fix first:</b> a short, ranked list of changes, with the spend each one touches.</li>
+</ul>
+<p>Figures come from your own export. Where we estimate (for example, what a smaller model would have cost), the report says so.</p>
+</section>
+
+<section aria-labelledby="wr-export"><h2 id="wr-export">What to send</h2>
+<p>The easiest export is from <a href="https://github.com/ryoppippi/ccusage">ccusage</a>, a free open-source tool that reads the local Claude Code logs on each developer's machine and prints token and cost totals. Run it on each machine you want included:</p>
+<pre class="wr-code"><code>npx ccusage@latest claude session --json --breakdown &gt; claude-sessions.json
+npx ccusage@latest claude daily --json --breakdown &gt; claude-daily.json</code></pre>
+<ul>
+<li>Add <code>--since YYYYMMDD</code> to limit the period. The last 30 days is plenty.</li>
+<li>The output holds dates, models, token counts, costs and session and project identifiers. Rename or remove project names first if they are sensitive.</li>
+<li>If your team uses API keys, a usage or cost CSV exported from the Claude Console works too.</li>
+<li><b>Please do not send</b> the raw log files under <code>~/.claude/projects</code>. They contain your prompts and code, and we do not want them.</li>
+</ul>
+</section>
+
+<section aria-labelledby="wr-privacy"><h2 id="wr-privacy">Privacy</h2>
+<ul>
+<li>We only read token, model and cost metadata. We do not need, and do not ask for, prompts or code.</li>
+<li>We use your files only to write your report, and delete them after we send it.</li>
+<li>We keep your name and email to reply, as described in our <a href="/privacy/">Privacy Policy</a>. No newsletter, no sharing.</li>
+</ul>
+</section>
+
+<section aria-labelledby="request"><h2 id="request">Request your report</h2>
+<p>This opens an email to us with your details filled in. <b>Attach your export file to that email before you send it.</b> Your browser cannot attach files for you, and nothing is uploaded from this page.</p>
+<form class="wr-form" id="wr-form" novalidate>
+  <label for="wr-name">Name</label>
+  <input id="wr-name" name="name" type="text" autocomplete="name" required>
+  <label for="wr-email">Work email</label>
+  <input id="wr-email" name="email" type="email" autocomplete="email" required>
+  <label for="wr-team">Team size</label>
+  <select id="wr-team" name="team" required>
+    <option value="">Choose</option>
+    <option>1 to 5</option>
+    <option>6 to 20</option>
+    <option>21 to 50</option>
+    <option>51 to 200</option>
+    <option>More than 200</option>
+  </select>
+  <label for="wr-file">Export file <span class="wr-opt">(optional)</span></label>
+  <input id="wr-file" name="file" type="file" accept=".json,.csv,.txt,.zip">
+  <p class="wr-help">Pick it here and we will remind you which file to attach. It stays on your device.</p>
+  <p class="wr-error" id="wr-error" role="alert" hidden></p>
+  <button class="button" type="submit">Compose the email <svg class="i"><use href="#arrow"/></svg></button>
+  <p class="wr-status" id="wr-status" role="status" hidden></p>
+</form>
+<p class="wr-plain">Or email us directly at <b>lake.research1@gmail.com</b> with the subject "Waste report request", your team size, and your export attached.</p>
+</section>
+
+<section aria-labelledby="wr-sample"><h2 id="wr-sample">Sample</h2>
+<p><a href="/waste-report/sample-report.pdf">Sample PDF (4 MB)</a>: a Lake walkthrough on a sample repo, with a cost and model on every step of an agent's plan. The repo, people and token counts in it are sample data. There is also a <a href="/waste-report/sample-walkthrough.mp4">45-second video</a> of the same flow.</p>
+<p>Want to fix the waste for good? <a href="/">Lake</a> puts plan approval and cost caps in front of your agents, free to start.</p>
+</section>
+</article>
+</main>
+<footer class="footer container">
+  <a class="wordmark small" href="/" aria-label="Lake home"><img src="/assets/logo-mark.svg" alt="" width="24" height="24"><span>Lake<span class="dot">.</span></span></a>
+  <span>© 2026 Lake · <a href="/license/">Lake License</a></span>
+  <span class="grow"></span>
+  <nav class="foot-links" aria-label="Legal"><a href="/pricing/">Pricing</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/refund/">Refunds</a><a href="/contact/">Contact</a></nav>
+</footer>
+</body>
+</html>

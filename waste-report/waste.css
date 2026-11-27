@@ -1,0 +1,15 @@
+.wr-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:22px}
+.doc .wr-ctas a.button{color:#fff;text-decoration:none}
+.wr-code{background:#0b3b44;color:#e6f3f1;border-radius:12px;padding:14px 16px;overflow-x:auto;margin:12px 0}
+.wr-code code{background:none;color:inherit;padding:0;font-size:13px;white-space:pre}
+.wr-form{display:grid;gap:8px;max-width:460px;margin-top:18px}
+.wr-form label{font-size:14px;font-weight:600;color:var(--ink);margin-top:8px}
+.wr-form input[type=text],.wr-form input[type=email],.wr-form select{font:inherit;font-size:15px;min-height:46px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.wr-form input[type=file]{font:inherit;font-size:14px}
+.wr-form .button{margin-top:14px;justify-self:start;cursor:pointer}
+.wr-opt{font-weight:400;color:var(--muted)}
+.doc .wr-help{font-size:13px;color:var(--muted);margin:0}
+.doc .wr-error{color:#a3402a;font-size:14px;margin:0}
+.doc .wr-status{background:var(--mist);border:1px solid #cfe5df;border-radius:12px;padding:12px 14px;color:var(--ink);font-size:14.5px}
+.doc .wr-plain{margin-top:18px}
+.doc ul+p{margin-top:12px}
