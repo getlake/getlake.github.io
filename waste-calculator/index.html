@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://lakehq.goatcounter.com; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'self'">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Code Waste Calculator · Lake</title>
+<meta name="description" content="Free, in-browser Claude Code waste calculator. Paste your ccusage JSON and see spend by model, your most expensive sessions, estimated waste, and how much ran with no approved plan. Nothing leaves your browser.">
+<meta property="og:title" content="Claude Code Waste Calculator · Lake">
+<meta property="og:description" content="Paste your ccusage JSON. See where Claude Code money went and how much ran with no approved plan. Runs entirely in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getlake.dev/waste-calculator/">
+<meta property="og:site_name" content="Lake">
+<meta property="og:image" content="https://getlake.dev/assets/og-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e7c7b">
+<link rel="canonical" href="https://getlake.dev/waste-calculator/">
+<link rel="icon" href="/assets/logo-mark.svg">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script data-goatcounter="https://lakehq.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script src="/assets/site.js" defer></script>
+<script src="/waste-calculator/wc.js" defer></script>
+<link rel="stylesheet" href="/waste-calculator/wc.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  <symbol id="up" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+  <symbol id="down" viewBox="0 0 24 24"><path d="M12 5v14m-6-6 6 6 6-6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h9"/></symbol>
+  <symbol id="github" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 3.3 5.8 3.6 5.8 3.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 10c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+  <symbol id="open" viewBox="0 0 24 24"><path d="M8 7 3 12l5 5m8-10 5 5-5 5M14 4l-4 16"/></symbol>
+  <symbol id="laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M2 19h20"/></symbol>
+  <symbol id="users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5m1-11a3 3 0 0 1 0 6m2 5c0-2-1-3.5-2.5-4.3"/></symbol>
+  <symbol id="wave" viewBox="0 0 24 24"><path d="M2 9c3-3 5-3 8 0s5 3 8 0 3-2 4-2M2 15c3-3 5-3 8 0s5 3 8 0 3-2 4-2"/></symbol>
+  <symbol id="ticket" viewBox="0 0 24 24"><path d="M4 7h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4V7Z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></symbol>
+  <symbol id="loop" viewBox="0 0 24 24"><path d="M17 3l3 3-3 3M4 11V9a3 3 0 0 1 3-3h13M7 21l-3-3 3-3m13-2v2a3 3 0 0 1-3 3H4"/></symbol>
+  <symbol id="scale" viewBox="0 0 24 24"><path d="M12 4v16M6 20h12M5 8h14M5 8l-3 6a3 3 0 0 0 6 0L5 8Zm14 0-3 6a3 3 0 0 0 6 0l-3-6Z"/></symbol>
+  <symbol id="coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.4 0-2.5.8-2.5 2s1.1 1.6 2.5 2 2.5.9 2.5 2-1.1 2-2.5 2c-1.1 0-2.1-.5-2.6-1.5M12 6.5V8m0 8v1.5"/></symbol>
+  <symbol id="pause" viewBox="0 0 24 24"><rect x="7" y="5" width="3" height="14" rx="1"/><rect x="14" y="5" width="3" height="14" rx="1"/></symbol>
+  <symbol id="doc" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5m-5 4h5"/></symbol>
+</svg>
+<header class="nav container">
+  <a class="wordmark" href="/" aria-label="Lake home"><img src="/assets/logo-mark.svg" alt="" width="32" height="32"><span>Lake<span class="dot">.</span></span></a>
+  <nav aria-label="Main">
+    <a href="/#how">How it works</a>
+    <a href="/platform/">Platform</a>
+    <a href="/pricing/" class="keep">Pricing</a>
+    <a class="button compact ghost" href="https://github.com/getlake/lake" aria-label="Lake on GitHub"><svg class="i"><use href="#github"/></svg><span class="gh-label">GitHub</span></a>
+  </nav>
+</header>
+<main id="main">
+<article class="container wc">
+  <p class="section-index">Free · runs in your browser</p>
+  <h1>Claude Code waste calculator</h1>
+  <p class="doc-lede">Paste your <a href="https://github.com/ryoppippi/ccusage">ccusage</a> JSON and see where the money went: spend by model, your most expensive sessions, an estimate of what was avoidable, and how much of it ran with no approved plan.</p>
+  <p class="wc-privacy"><svg class="i"><use href="#check"/></svg><span><b>Your data never leaves this page.</b> Parsing and every calculation happen in your browser. This page makes no network request with your data, has no upload, and stores nothing. It enforces that with a Content-Security-Policy that blocks outgoing connections (<code>connect-src 'none'</code>). Page views are counted, your JSON is not.</span></p>
+
+  <section class="wc-input" aria-labelledby="wc-in-h">
+    <h2 id="wc-in-h">1. Get your export</h2>
+    <pre class="wc-code"><code>npx ccusage@latest claude session --json --breakdown
+npx ccusage@latest claude daily --json</code></pre>
+    <p class="wc-help">Either one works; both together give the fullest picture. Add <code>--since YYYYMMDD</code> to limit the period. Project names appear in the output, so rename them first if they are sensitive (they are only shown on your screen).</p>
+    <h2 id="wc-paste-h">2. Paste it or drop the file</h2>
+    <div class="wc-drop" id="wc-drop">
+      <label for="wc-input" class="wc-sr">Paste ccusage JSON</label>
+      <textarea id="wc-input" spellcheck="false" placeholder='Paste JSON here, e.g. {"sessions":[...]} or {"daily":[...]}. You can paste the session and daily outputs one after the other.'></textarea>
+      <p class="wc-droptext">or drop .json files here, or <label class="wc-filebtn" for="wc-file">choose files</label><input id="wc-file" type="file" accept=".json,.txt,application/json" multiple></p>
+    </div>
+    <p class="wc-error" id="wc-error" role="alert" hidden></p>
+    <p class="wc-actions"><button type="button" class="button" id="wc-run">Calculate <svg class="i"><use href="#arrow"/></svg></button> <button type="button" class="button ghost-btn" id="wc-sample">Try with sample data</button> <button type="button" class="text-link wc-linkbtn" id="wc-clear">Clear</button></p>
+    <p class="wc-fine">The sample is synthetic: made-up projects and token counts in the real ccusage format. It is not anyone's real usage.</p>
+    <details class="wc-assume"><summary>Estimate assumptions (adjust them)</summary>
+      <div class="wc-sliders">
+        <label for="k-opus">Share of Opus spend that was routine work <b id="k-opus-v">35%</b></label><input type="range" id="k-opus" min="0" max="100" value="35">
+        <label for="k-run">Share of a very long session that was waste <b id="k-run-v">30%</b></label><input type="range" id="k-run" min="0" max="100" value="30">
+        <label for="k-runmult">"Very long" means at least this many times the median session <b id="k-runmult-v">4x</b></label><input type="range" id="k-runmult" min="2" max="10" value="4">
+        <label for="k-ab">Share of a brief or restarted session that was a failed start <b id="k-ab-v">50%</b></label><input type="range" id="k-ab" min="0" max="100" value="50">
+      </div>
+    </details>
+  </section>
+
+  <div id="wc-report" class="wc-report" hidden aria-live="polite"></div>
+
+  <section aria-labelledby="wc-how"><h2 id="wc-how">How it works, and its limits</h2>
+  <ul>
+  <li>It reads the schema <code>ccusage</code> prints (<code>sessions</code> or <code>daily</code>, with <code>modelBreakdowns</code>) and the multi-agent <code>session</code> shape. Costs are the ones ccusage computed from your local logs.</li>
+  <li>The estimates are rules of thumb, shown in full next to each number. They say where to look, not what you could have saved. Your own judgement beats them.</li>
+  <li>The "no approved plan" figure is 100% by construction: an export cannot show an approval, so without a plan gate nothing was approved.</li>
+  <li>If you use a subscription plan, ccusage costs are API-equivalent prices, not what you were billed.</li>
+  </ul></section>
+  <section aria-labelledby="wc-next"><h2 id="wc-next">Want the fix, not just the number?</h2>
+  <p><a href="/">Lake</a> puts plan approval and cost caps in front of your agents, free to start. Prefer a written report for your team? <a href="/waste-report/">Request the full PDF report</a> (free).</p></section>
+</article>
+</main>
+<footer class="footer container">
+  <a class="wordmark small" href="/" aria-label="Lake home"><img src="/assets/logo-mark.svg" alt="" width="24" height="24"><span>Lake<span class="dot">.</span></span></a>
+  <span>© 2026 Lake · <a href="/license/">Lake License</a></span>
+  <span class="grow"></span>
+  <nav class="foot-links" aria-label="Legal"><a href="/pricing/">Pricing</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/refund/">Refunds</a><a href="/contact/">Contact</a></nav>
+</footer>
+</body>
+</html>
